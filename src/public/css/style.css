@@ -1,0 +1,39 @@
+/* =========================
+base
+========================= */
+
+.auth-body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+}
+
+
+/* =========================
+header
+========================= */
+
+.auth-header {
+    width: 100%;
+    background: #000;
+}
+
+.auth-header-inner {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.auth-logo {
+    height: 30px;
+}
+
+
+/* =========================
+main
+========================= */
+
+.auth-main {
+    display: flex;
+    justify-content: center;
+}
