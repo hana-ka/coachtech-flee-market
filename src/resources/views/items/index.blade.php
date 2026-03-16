@@ -1,0 +1,56 @@
+@extends('layouts.app')
+
+@section('title','商品一覧')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/items.css') }}">
+@endsection
+
+@section('content')
+
+<div class="items-container">
+
+    {{-- タブ --}}
+    <div class="items-tabs">
+
+        <a href="/" class="tab {{ request('page') !== 'mylist' ? 'active' : '' }}">
+            おすすめ
+        </a>
+
+        <a href="/?page=mylist" class="tab {{ request('page') === 'mylist' ? 'active' : '' }}">
+            マイリスト
+        </a>
+
+    </div>
+
+
+    {{-- 商品一覧 --}}
+    <div class="items-grid">
+
+        @foreach($items ?? [] as $item)
+
+        <a href="/item/{{ $item->id }}" class="item-card">
+
+            <div class="item-image">
+
+                <img src="{{ $item->image }}" alt="商品画像">
+
+                @if($item->is_sold ?? false)
+                    <span class="sold-label">Sold</span>
+                @endif
+
+            </div>
+
+            <p class="item-name">
+                {{ $item->name }}
+            </p>
+
+        </a>
+
+        @endforeach
+
+    </div>
+
+</div>
+
+@endsection

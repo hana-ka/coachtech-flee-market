@@ -13,9 +13,9 @@
 
 <body class="auth-body">
 
-    <header class="auth-header">
-        <div class="auth-header-inner">
-            <img class="auth-logo" src="{{ asset('images/logo.png') }}" alt="COACHTECH">
+    <header class="header">
+        <div class="header-inner">
+            <img class="header-logo" src="{{ asset('images/logo.png') }}" alt="COACHTECH">
         </div>
     </header>
 

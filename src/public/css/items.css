@@ -1,0 +1,110 @@
+/* =========================
+container
+========================= */
+
+.items-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+tabs
+========================= */
+
+.items-tabs {
+    display: flex;
+    gap: 40px;
+
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+.tab {
+    font-size: 16px;
+    color: #666;
+    text-decoration: none;
+}
+
+.tab.active {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+
+/* =========================
+items grid
+========================= */
+
+.items-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px 30px;
+}
+
+
+/* =========================
+item card
+========================= */
+
+.item-card {
+    text-decoration: none;
+    color: #000;
+}
+
+
+/* =========================
+item image
+========================= */
+
+.item-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    background: #ddd;
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+sold label
+========================= */
+
+.sold-label {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    background: red;
+    color: white;
+
+    font-size: 12px;
+    padding: 4px 8px;
+
+    border-radius: 4px;
+}
+
+
+/* =========================
+item name
+========================= */
+
+.item-name {
+    margin-top: 10px;
+    font-size: 14px;
+}
