@@ -4,7 +4,7 @@ container
 
 .items-container {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -14,12 +14,15 @@ tabs
 ========================= */
 
 .items-tabs {
+    border-bottom: 1px solid #ccc;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.tabs {
     display: flex;
     gap: 40px;
-
-    border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
-    margin-bottom: 40px;
 }
 
 .tab {
@@ -107,4 +110,249 @@ item name
 .item-name {
     margin-top: 10px;
     font-size: 14px;
+}
+
+
+
+/* =========================
+show.blade.php
+========================= */
+
+/* =========================
+container
+========================= */
+
+.item-detail-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+
+/* =========================
+left image
+========================= */
+
+.item-detail-image {
+    width: 45%;
+}
+
+.item-detail-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ddd;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+
+/* =========================
+right content
+========================= */
+
+.item-detail-content {
+    width: 55%;
+}
+
+
+/* =========================
+text
+========================= */
+
+.item-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item-brand {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.item-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+icons
+========================= */
+
+.item-icons {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.icon-box img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+button
+========================= */
+
+.purchase-button {
+    display: block;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: #ff5a5a;
+    color: #fff;
+
+    padding: 12px 0;
+    border-radius: 4px;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+section titles
+========================= */
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+description
+========================= */
+
+.item-description {
+    margin-bottom: 30px;
+}
+
+.description-text {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+item info
+========================= */
+
+.item-info {
+    margin-bottom: 30px;
+}
+
+.info-text {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+comments
+========================= */
+
+.item-comments {
+    margin-bottom: 30px;
+}
+
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.comment-user-icon {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.comment-user-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.comment-text {
+    background: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+/* =========================
+comment form
+========================= */
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.comment-textarea {
+    width: 100%;
+    height: 120px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    padding: 10px;
+    font-size: 14px;
+
+    resize: none;
+}
+
+.comment-button {
+    background: #ff5a5a;
+    color: #fff;
+
+    border: none;
+    border-radius: 4px;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    display: block;
+    width: 100%;
 }

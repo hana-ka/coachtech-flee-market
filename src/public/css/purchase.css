@@ -1,0 +1,267 @@
+/* =========================
+container
+========================= */
+
+.purchase-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+inner（左右レイアウト）
+========================= */
+
+.purchase-inner {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+
+/* =========================
+left
+========================= */
+
+.purchase-left {
+    flex: 1;
+}
+
+
+/* =========================
+item（商品）
+========================= */
+
+.purchase-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-image {
+    width: 120px;
+    height: 120px;
+    background: #ddd;
+    border-radius: 6px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-price {
+    font-size: 16px;
+}
+
+
+/* =========================
+section（支払い・住所）
+========================= */
+
+.purchase-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+select
+========================= */
+
+.form-select {
+    width: 200px;
+    height: 35px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    padding: 0 10px;
+}
+
+
+/* =========================
+address
+========================= */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.change-link {
+    font-size: 12px;
+    color: #0073ff;
+    text-decoration: none;
+}
+
+.address {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+right
+========================= */
+
+.purchase-right {
+    width: 300px;
+}
+
+
+/* =========================
+summary box
+========================= */
+
+.purchase-summary {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.summary-value {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =========================
+button
+========================= */
+
+.submit-button {
+    width: 100%;
+    height: 45px;
+
+    background: #ff5a5a;
+    color: #fff;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+
+
+/* =========================
+container / title
+========================= */
+
+.address-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.address-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+form
+========================= */
+
+.address-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* =========================
+form group
+========================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =========================
+input
+========================= */
+
+.form-input {
+    width: 100%;
+    height: 45px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    padding: 0 10px;
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+button
+========================= */
+
+.submit-button {
+    margin-top: 10px;
+
+    height: 50px;
+
+    border: none;
+    border-radius: 4px;
+
+    background: #ff5a5a;
+    color: #fff;
+
+    font-size: 16px;
+    cursor: pointer;
+}

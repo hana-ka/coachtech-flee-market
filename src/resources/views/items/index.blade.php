@@ -8,23 +8,26 @@
 
 @section('content')
 
-<div class="items-container">
+<div class="items-tabs">
+    <div class="items-container">
 
-    {{-- タブ --}}
-    <div class="items-tabs">
+        <div class="tabs">
 
-        <a href="/" class="tab {{ request('page') !== 'mylist' ? 'active' : '' }}">
-            おすすめ
-        </a>
+            <a href="/" class="tab {{ request('page') !== 'mylist' ? 'active' : '' }}">
+                おすすめ
+            </a>
 
-        <a href="/?page=mylist" class="tab {{ request('page') === 'mylist' ? 'active' : '' }}">
-            マイリスト
-        </a>
+            <a href="/?page=mylist" class="tab {{ request('page') === 'mylist' ? 'active' : '' }}">
+                マイリスト
+            </a>
+
+        </div>
 
     </div>
+</div>
 
+<div class="items-container">
 
-    {{-- 商品一覧 --}}
     <div class="items-grid">
 
         @foreach($items ?? [] as $item)

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\MypageController;
+use App\Http\Controllers\PurchaseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +18,23 @@ use App\Http\Controllers\ItemController;
 */
 
 Route::get('/', [ItemController::class, 'index']);
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/mypage/profile', [MypageController::class, 'edit'])
+        ->name('mypage.profile.edit');
+
+    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
+
+    Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
+    Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
+
+    Route::get('/purchase/{item}', [PurchaseController::class, 'create'])->name('purchase.create');
+
+    Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit']) ->name('purchase.address.edit');
+
+
+});
+
+Route::get('/item/{item}', [ItemController::class, 'show'])
+    ->name('items.show');
