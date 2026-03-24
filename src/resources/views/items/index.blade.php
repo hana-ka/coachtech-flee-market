@@ -36,9 +36,13 @@
 
             <div class="item-image">
 
-                <img src="{{ $item->image }}" alt="商品画像">
+                @if(Str::startsWith($item->image, 'http'))
+                    <img src="{{ $item->image }}">
+                @else
+                    <img src="{{ asset('storage/' . $item->image) }}">
+                @endif
 
-                @if($item->is_sold ?? false)
+                @if($item->purchase !== null)
                     <span class="sold-label">Sold</span>
                 @endif
 

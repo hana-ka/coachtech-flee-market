@@ -22,8 +22,14 @@
             <p class="form-label">商品画像</p>
 
             <div class="image-box">
-                <input type="file" name="image" class="form-file">
-                <button type="button" class="image-button">画像を選択する</button>
+                <label class="image-button">
+                    画像を選択する
+                    <input
+                        type="file"
+                        name="image"
+                        class="form-file"
+                    >
+                </label>
             </div>
         </div>
 
@@ -40,75 +46,19 @@
 
             <div class="category-list">
 
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="1">
-                    <span class="category-text">ファッション</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="2">
-                    <span class="category-text">家電</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="3">
-                    <span class="category-text">インテリア</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="4">
-                    <span class="category-text">レディース</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="5">
-                    <span class="category-text">メンズ</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="6">
-                    <span class="category-text">コスメ</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="7">
-                    <span class="category-text">本</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="8">
-                    <span class="category-text">ゲーム</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="9">
-                    <span class="category-text">スポーツ</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="10">
-                    <span class="category-text">キッチン</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="11">
-                    <span class="category-text">ハンドメイド</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="12">
-                    <span class="category-text">アクセサリー</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="13">
-                    <span class="category-text">おもちゃ</span>
-                </label>
-
-                <label class="category-tag">
-                    <input class="category-checkbox" type="checkbox" name="categories[]" value="14">
-                    <span class="category-text">ベビー・キッズ</span>
-                </label>
+                @foreach($categories as $category)
+                    <label class="category-tag">
+                        <input
+                            class="category-checkbox"
+                            type="checkbox"
+                            name="categories[]"
+                            value="{{ $category->id }}"
+                        >
+                        <span class="category-text">
+                            {{ $category->name }}
+                        </span>
+                    </label>
+                @endforeach
 
             </div>
 
@@ -117,10 +67,12 @@
 
             <select name="condition_id" class="form-select">
                 <option value="">選択してください</option>
-                <option value="1">良好</option>
-                <option value="2">目立った傷や汚れなし</option>
-                <option value="3">やや傷や汚れあり</option>
-                <option value="4">状態が悪い</option>
+
+                @foreach($conditions as $condition)
+                    <option value="{{ $condition->id }}">
+                        {{ $condition->name }}
+                    </option>
+                @endforeach
             </select>
 
         </div>
