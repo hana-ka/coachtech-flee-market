@@ -24,6 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile', [MypageController::class, 'edit'])
         ->name('mypage.profile.edit');
 
+    Route::patch('/mypage/profile', [MypageController::class, 'update'])
+    ->name('mypage.profile.update');
+
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Http\Requests\ProfileRequest;
 
 
 class MypageController extends Controller
@@ -20,19 +21,39 @@ class MypageController extends Controller
     {
         $user = Auth::user();
 
-        // 出品 or 購入 切り替え
         if ($request->query('page') === 'buy') {
 
-            // 仮：購入した商品（後でちゃんとリレーション）
-            $items = Item::all();
+            $items = Item::whereHas('purchase', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->get();
 
         } else {
 
-            // 仮：自分の出品商品
             $items = Item::where('user_id', $user->id)->get();
 
         }
 
-        return view('mypage.index', compact('items'));
+        return view('mypage.index', compact('items', 'user'));
+    }
+
+    public function update(ProfileRequest $request)
+    {
+        $user = Auth::user();
+
+        $data = [
+            'name' => $request->name,
+            'postcode' => $request->postcode,
+            'address' => $request->address,
+            'building' => $request->building,
+        ];
+
+        if ($request->hasFile('image')) {
+            $data['profile_image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $user->update($data);
+
+        return redirect('/mypage');
     }
 }
+

@@ -13,7 +13,9 @@
     <div class="mypage-profile">
 
         <div class="profile-left">
-            <div class="profile-image"></div>
+            <div class="profile-image">
+                <img src="{{ asset('storage/' . $user->profile_image) }}">
+            </div>
             <p class="profile-name">{{ Auth::user()->name }}</p>
         </div>
 
@@ -46,15 +48,18 @@
 
     <div class="item-card">
 
-        <div class="item-image"></div>
+        <div class="item-image">
+            <img class="item-img" src="{{ Str::startsWith($item->image, 'http')
+            ? $item->image
+            : asset('storage/' . $item->image) }}">
+        </div>
 
-        <p class="item-name">商品名</p>
+        <p class="item-name">{{ $item->name }}</p>
 
     </div>
 
     @endforeach
 
 </div>
-
 
 @endsection

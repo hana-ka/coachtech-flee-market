@@ -12,15 +12,16 @@
 
     <h2 class="profile-title">プロフィール設定</h2>
 
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('mypage.profile.update') }}" enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
 
         {{-- 画像 --}}
         <div class="profile-image-area">
 
             <div class="profile-image">
                 @if($user->image)
-                    <img src="{{ asset('storage/'.$user->image) }}">
+                    <img src="{{ asset('storage/'.$user->profile_image) }}">
                 @endif
             </div>
 
@@ -34,25 +35,25 @@
         {{-- ユーザー名 --}}
         <div class="form-group">
             <label>ユーザー名</label>
-            <input type="text" name="name" value="{{ $user->name }}">
+            <input type="text" name="name" value="{{ old('name', $user->name) }}">
         </div>
 
         {{-- 郵便番号 --}}
         <div class="form-group">
             <label>郵便番号</label>
-            <input type="text" name="postcode" value="{{ $user->postcode }}">
+            <input type="text" name="postcode" value="{{ old('postcode', $user->postcode) }}">
         </div>
 
         {{-- 住所 --}}
         <div class="form-group">
             <label>住所</label>
-            <input type="text" name="address" value="{{ $user->address }}">
+            <input type="text" name="address" value="{{ old('address', $user->address) }}">
         </div>
 
         {{-- 建物名 --}}
         <div class="form-group">
             <label>建物名</label>
-            <input type="text" name="building" value="{{ $user->building }}">
+            <input type="text" name="building" value="{{ old('building', $user->building) }}">
         </div>
 
         <button class="profile-button">
