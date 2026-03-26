@@ -12,19 +12,39 @@ use App\Models\Condition;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        if (Auth::check()) {
-        $items = Item::with('purchase')
-            ->where('user_id', '!=', Auth::id())
-            ->get();
-        } else {
-            $items = Item::with('purchase')->get();
+        $query = Item::with('purchase');
+
+        $keyword = $request->query('keyword');
+        if ($keyword) {
+            $query->where('name', 'like', '%' . $keyword . '%');
         }
+
+        if ($request->query('tab') === 'mylist') {
+
+            if (!Auth::check()) {
+                $items = collect();
+                return view('items.index', compact('items'));
+            }
+
+            $query->whereHas('likes', function ($q) {
+                $q->where('user_id', Auth::id());
+            });
+
+        } else {
+
+            if (Auth::check()) {
+                $query->where('user_id', '!=', Auth::id());
+            }
+
+        }
+
+        $items = $query->get();
 
         return view('items.index', compact('items'));
+    }
 
-        }
 
     public function show(Item $item)
     {

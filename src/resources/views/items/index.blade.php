@@ -13,11 +13,11 @@
 
         <div class="tabs">
 
-            <a href="/" class="tab {{ request('page') !== 'mylist' ? 'active' : '' }}">
+            <a href="/" class="tab {{ request('tab') !== 'mylist' ? 'active' : '' }}">
                 おすすめ
             </a>
 
-            <a href="/?page=mylist" class="tab {{ request('page') === 'mylist' ? 'active' : '' }}">
+            <a href="/?tab=mylist{{ request('keyword') ? '&keyword=' . request('keyword') : '' }}" class="tab {{ request('tab') === 'mylist' ? 'active' : '' }}">
                 マイリスト
             </a>
 

@@ -26,6 +26,7 @@
                     class="search-input"
                     type="text"
                     name="keyword"
+                    value="{{ request('keyword') }}"
                     placeholder="なにをお探しですか？"
                 >
             </form>
