@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\PurchaseController;
-
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit']) ->name('purchase.address.edit');
 
+    Route::post('/like/{item}', [LikeController::class, 'store'])
+        ->name('like.store');
 
 });
 
 Route::get('/item/{item}', [ItemController::class, 'show'])
     ->name('items.show');
+
+Route::post('/comment/{item}', [CommentController::class, 'store'])
+    ->name('comments.store')
+    ->middleware('auth');

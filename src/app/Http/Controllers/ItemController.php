@@ -48,8 +48,17 @@ class ItemController extends Controller
 
     public function show(Item $item)
     {
+        $item->load([
+            'categories',
+            'condition',
+            'likes',
+            'comments.user',
+            'purchase',
+        ]);
+
         return view('items.show', compact('item'));
     }
+
 
     public function create()
     {
@@ -66,6 +75,7 @@ class ItemController extends Controller
         $item = Item::create([
             'image' => $path,
             'name' => $request->name,
+            'brand' => $request->brand,
             'description' => $request->description,
             'condition_id' => $request->condition_id,
             'price' => $request->price,
