@@ -12,13 +12,17 @@
 
     <div class="purchase-inner">
 
-        {{-- 左側 --}}
         <div class="purchase-left">
 
-            {{-- 商品 --}}
             <div class="purchase-item">
 
-                <div class="item-image"></div>
+                <div class="item-image">
+                    @if(Str::startsWith($item->image, 'http'))
+                        <img class="item-image-img" src="{{ $item->image }}">
+                    @else
+                        <img class="item-image-img" src="{{ asset('storage/' . $item->image) }}">
+                    @endif
+                </div>
 
                 <div class="item-info">
                     <p class="item-name">{{ $item->name }}</p>
@@ -27,22 +31,32 @@
 
             </div>
 
+            <form method="GET">
 
-            {{-- 支払い方法 --}}
-            <div class="purchase-section">
+                <div class="purchase-section">
 
-                <p class="section-title">支払い方法</p>
+                    <p class="section-title">支払い方法</p>
 
-                <select class="form-select">
-                    <option>選択してください</option>
-                    <option>コンビニ支払い</option>
-                    <option>カード支払い</option>
-                </select>
+                    <select name="payment_method" onchange="this.form.submit()" class="form-select">
 
-            </div>
+                        <option value="">選択してください</option>
 
+                        <option value="convenience"
+                            {{ request('payment_method') === 'convenience' ? 'selected' : '' }}>
+                            コンビニ支払い
+                        </option>
 
-            {{-- 配送先 --}}
+                        <option value="card"
+                            {{ request('payment_method') === 'card' ? 'selected' : '' }}>
+                            カード支払い
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </form>
+
             <div class="purchase-section">
 
                 <div class="section-header">
@@ -51,11 +65,11 @@
                 </div>
 
                 <p class="address">
-                    〒{{ $user->postcode ?? 'XXX-YYYY' }}
+                    〒{{ $user->postcode }}
                 </p>
 
                 <p class="address">
-                    {{ $user->address ?? 'ここには住所と建物が入ります' }}
+                    {{ $user->address }} {{ $user->building }}
                 </p>
 
             </div>
@@ -63,28 +77,45 @@
         </div>
 
 
-        {{-- 右側 --}}
-        <div class="purchase-right">
+        <form method="POST" action="{{ route('purchase.store', $item->id) }}">
+            @csrf
 
-            <div class="purchase-summary">
+            <input type="hidden" name="payment_method" value="{{ request('payment_method') }}">
+            <input type="hidden" name="postcode" value="{{ $user->postcode }}">
+            <input type="hidden" name="address" value="{{ $user->address }}">
+            <input type="hidden" name="building" value="{{ $user->building }}">
 
-                <div class="summary-row">
-                    <p class="summary-label">商品代金</p>
-                    <p class="summary-value">¥{{ number_format($item->price) }}</p>
+            <div class="purchase-right">
+
+                <div class="purchase-summary">
+
+                    <div class="summary-row">
+                        <p class="summary-label">商品代金</p>
+                        <p class="summary-value">¥{{ number_format($item->price) }}</p>
+                    </div>
+
+                    <div class="summary-row">
+                        <p class="summary-label">支払い方法</p>
+                        <p class="summary-value">
+                            @if(request('payment_method') === 'convenience')
+                                コンビニ支払い
+                            @elseif(request('payment_method') === 'card')
+                                カード支払い
+                            @else
+                                未選択
+                            @endif
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="summary-row">
-                    <p class="summary-label">支払い方法</p>
-                    <p class="summary-value">コンビニ払い</p>
-                </div>
+                <button type="submit" class="submit-button">
+                    購入する
+                </button>
 
             </div>
 
-            <button class="submit-button">
-                購入する
-            </button>
-
-        </div>
+        </form>
 
     </div>
 

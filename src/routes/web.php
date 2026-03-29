@@ -30,12 +30,19 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 
+
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
+
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
+
 
     Route::get('/purchase/{item}', [PurchaseController::class, 'create'])->name('purchase.create');
 
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit']) ->name('purchase.address.edit');
+
+    Route::post('/purchase/{item}', [PurchaseController::class, 'store'])
+    ->name('purchase.store');
+
 
     Route::post('/like/{item}', [LikeController::class, 'store'])
         ->name('like.store');
