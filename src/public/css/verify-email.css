@@ -1,0 +1,57 @@
+/* 背景 */
+.verify-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 中央ボックス */
+.verify-box {
+    width: 600px;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+/* テキスト */
+.verify-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* ボタンエリア */
+.verify-btn-area {
+    margin-bottom: 20px;
+}
+
+/* 認証ボタン */
+.verify-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #e0e0e0;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+
+.verify-btn:hover {
+    background-color: #d5d5d5;
+}
+
+/* 再送リンク */
+.resend-link {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.resend-link:hover {
+    text-decoration: underline;
+}

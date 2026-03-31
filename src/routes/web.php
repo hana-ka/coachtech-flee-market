@@ -6,6 +6,8 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ Route::get('/', [ItemController::class, 'index']);
 Route::middleware('auth')->group(function () {
 
     Route::get('/mypage/profile', [MypageController::class, 'edit'])
+        ->middleware('verified')
         ->name('mypage.profile.edit');
 
     Route::patch('/mypage/profile', [MypageController::class, 'update'])
@@ -46,6 +49,25 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/like/{item}', [LikeController::class, 'store'])
         ->name('like.store');
+
+
+    Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+    })->name('verification.notice');
+
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back();
+    })->name('verification.send');
+
+
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+
+        return redirect('/mypage/profile');
+    })->middleware('signed')->name('verification.verify');
 
 });
 
