@@ -1,31 +1,52 @@
-/* 背景 */
+/* =========================
+verify wrapper
+========================= */
+
 .verify-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 中央ボックス */
+
+/* =========================
+verify box
+========================= */
+
 .verify-box {
-    width: 600px;
-    padding: 80px 40px;
+    width: 80%;
+    max-width: 800px;
+    padding: 200px 40px;
     text-align: center;
 }
 
-/* テキスト */
+
+/* =========================
+verify text
+========================= */
+
 .verify-text {
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: bold;
     color: #333;
     line-height: 1.8;
     margin-bottom: 40px;
 }
 
-/* ボタンエリア */
+
+/* =========================
+button area
+========================= */
+
 .verify-btn-area {
     margin-bottom: 20px;
 }
 
-/* 認証ボタン */
+
+/* =========================
+verify button
+========================= */
+
 .verify-btn {
     display: inline-block;
     padding: 10px 30px;
@@ -42,7 +63,11 @@
     background-color: #d5d5d5;
 }
 
-/* 再送リンク */
+
+/* =========================
+resend link
+========================= */
+
 .resend-link {
     background: none;
     border: none;
@@ -50,6 +75,7 @@
     font-size: 13px;
     cursor: pointer;
     text-decoration: none;
+    margin-top: 20px;
 }
 
 .resend-link:hover {

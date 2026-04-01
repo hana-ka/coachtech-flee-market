@@ -39,7 +39,7 @@
 
                     <select name="payment_method" onchange="this.form.submit()" class="form-select">
 
-                        <option value="">選択してください</option>
+                        <option value="" disabled selected hidden>選択してください</option>
 
                         <option value="convenience"
                             {{ request('payment_method') === 'convenience' ? 'selected' : '' }}>

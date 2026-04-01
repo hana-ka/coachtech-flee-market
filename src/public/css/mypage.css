@@ -27,7 +27,7 @@ profile image
 .profile-image-area {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
@@ -140,7 +140,7 @@ profile area
 .profile-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 70px;
 }
 
 .profile-image {
@@ -180,7 +180,7 @@ tabs
     display: flex;
     gap: 40px;
 
-    padding-left: 50px;
+    padding-left: 60px;
 }
 
 .tab {
@@ -204,6 +204,8 @@ items
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+
+    padding: 20px;
 }
 
 
@@ -230,4 +232,5 @@ item card
 
 .item-name {
     font-size: 14px;
+    margin-top: 15px;
 }

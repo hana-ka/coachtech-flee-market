@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="items-tabs">
-    <div class="items-container">
+    <div class="tabs-container">
 
         <div class="tabs">
 

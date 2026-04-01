@@ -14,7 +14,10 @@
 
         <div class="profile-left">
             <div class="profile-image">
-                <img src="{{ asset('storage/' . $user->profile_image) }}">
+                <img class="user-icon-img"
+                    src="{{ !empty($user->profile_image)
+                        ? asset('storage/' . $user->profile_image)
+                        : asset('images/default.jpeg') }}">
             </div>
             <p class="profile-name">{{ Auth::user()->name }}</p>
         </div>

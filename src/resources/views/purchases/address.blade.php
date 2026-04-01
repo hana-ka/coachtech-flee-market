@@ -12,13 +12,15 @@
 
     <h2 class="address-title">住所の変更</h2>
 
-    <form class="address-form">
+    <form method="POST" action="{{ route('purchase.address.update', $item->id) }}" class="address-form">
+        @csrf
 
         <div class="form-group">
             <label for="postcode" class="form-label">郵便番号</label>
             <input
                 id="postcode"
                 type="text"
+                name="postcode"
                 class="form-input"
                 value="{{ $user->postcode }}"
             >
@@ -29,6 +31,7 @@
             <input
                 id="address"
                 type="text"
+                name="address"
                 class="form-input"
                 value="{{ $user->address }}"
             >
@@ -39,6 +42,7 @@
             <input
                 id="building"
                 type="text"
+                name="building"
                 class="form-input"
                 value="{{ $user->building }}"
             >

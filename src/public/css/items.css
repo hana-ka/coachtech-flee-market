@@ -2,10 +2,15 @@
 container
 ========================= */
 
-.items-container {
+.tabs-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.items-container{
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 
@@ -21,7 +26,7 @@ tabs
 
 .tabs {
     display: flex;
-    gap: 40px;
+    gap: 60px;
     padding-bottom: 10px;
 }
 
@@ -189,7 +194,9 @@ icons
 .item-icons {
     display: flex;
     gap: 30px;
+    margin-left: 20px;
     margin-bottom: 20px;
+
 }
 
 .like-box,
@@ -285,7 +292,12 @@ item info
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
+    margin-left: 30px;
     margin-right: 5px;
+}
+
+.condition-name{
+    margin-left: 30px;
 }
 
 
@@ -355,6 +367,8 @@ comment form
 
     border: 1px solid #ccc;
     border-radius: 4px;
+
+    margin-bottom: 10px;
 
     padding: 10px;
     font-size: 14px;

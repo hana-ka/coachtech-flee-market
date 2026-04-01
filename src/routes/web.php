@@ -43,8 +43,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit']) ->name('purchase.address.edit');
 
+    Route::post('/purchase/address/{item}', [PurchaseController::class, 'update'])
+    ->name('purchase.address.update');
+
     Route::post('/purchase/{item}', [PurchaseController::class, 'store'])
     ->name('purchase.store');
+
+    Route::get('/purchase/success/{item}', [PurchaseController::class, 'success'])
+    ->name('purchase.success');
 
 
     Route::post('/like/{item}', [LikeController::class, 'store'])

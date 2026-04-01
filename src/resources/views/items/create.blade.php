@@ -15,9 +15,6 @@
     <form method="POST" action="{{ route('items.store') }}" enctype="multipart/form-data" class="sell-form">
         @csrf
 
-        {{-- =========================
-        商品画像
-        ========================= --}}
         <div class="form-group">
             <p class="form-label">商品画像</p>
 
@@ -34,9 +31,6 @@
         </div>
 
 
-        {{-- =========================
-        商品の詳細
-        ========================= --}}
         <div class="form-section">
 
             <h3 class="section-title">商品の詳細</h3>
@@ -62,11 +56,10 @@
 
             </div>
 
-            {{-- 状態 --}}
             <p class="form-label">商品の状態</p>
 
             <select name="condition_id" class="form-select">
-                <option value="">選択してください</option>
+                <option value="" disabled selected hidden>選択してください</option>
 
                 @foreach($conditions as $condition)
                     <option value="{{ $condition->id }}">
