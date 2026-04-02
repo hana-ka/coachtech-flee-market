@@ -49,9 +49,14 @@
 
     @foreach($items ?? [] as $item)
 
-    <div class="item-card">
+    <a href="{{ route('items.show', $item->id) }}" class="item-card">
 
         <div class="item-image">
+
+            @if($item->purchase !== null)
+            <span class="sold-label">Sold</span>
+            @endif
+
             <img class="item-img" src="{{ Str::startsWith($item->image, 'http')
             ? $item->image
             : asset('storage/' . $item->image) }}">
@@ -59,7 +64,7 @@
 
         <p class="item-name">{{ $item->name }}</p>
 
-    </div>
+    </a>
 
     @endforeach
 

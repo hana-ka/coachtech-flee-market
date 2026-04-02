@@ -144,6 +144,7 @@ left image
 
 .item-detail-image {
     width: 45%;
+    position: relative;
 }
 
 .item-detail-img {
@@ -152,6 +153,20 @@ left image
     background: #ddd;
     border-radius: 6px;
     object-fit: cover;
+}
+
+.sold-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    background: red;
+    color: white;
+
+    font-size: 12px;
+    padding: 4px 8px;
+
+    border-radius: 4px;
 }
 
 
@@ -244,6 +259,11 @@ button
     text-decoration: none;
 
     margin-bottom: 30px;
+}
+
+.purchase-button[disabled] {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 

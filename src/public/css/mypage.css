@@ -222,6 +222,7 @@ item card
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    position: relative;
 }
 
 .item-img {
@@ -233,4 +234,18 @@ item card
 .item-name {
     font-size: 14px;
     margin-top: 15px;
+}
+
+.sold-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    background: red;
+    color: white;
+
+    font-size: 12px;
+    padding: 4px 8px;
+
+    border-radius: 4px;
 }

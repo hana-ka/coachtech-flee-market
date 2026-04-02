@@ -109,14 +109,16 @@
 
             <div class="form-group">
                 <label for="price" class="form-label">販売価格</label>
-                <input
+                <dev class="price-input">
+                    <span class="yen">¥</span>
+                    <input
                     id="price"
                     type="number"
                     name="price"
                     class="form-input"
                     min="0"
-                    placeholder="¥"
-                >
+                    >
+                </dev>
             </div>
 
         </div>

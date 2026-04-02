@@ -28,7 +28,7 @@ form
 
 
 /* =========================
-商品画像（←一番上）
+商品画像
 ========================= */
 
 .form-group {
@@ -70,7 +70,7 @@ form
 
 
 /* =========================
-商品の詳細（カテゴリ → 状態）
+商品の詳細
 ========================= */
 
 .form-section {
@@ -148,7 +148,7 @@ form
     border: 1px solid #ccc;
     border-radius: 4px;
 
-    padding: 0 10px;
+    padding: 0 30px;
     font-size: 14px;
 
     box-sizing: border-box;
@@ -168,9 +168,20 @@ form
     box-sizing: border-box;
 }
 
+.price-input {
+    position: relative;
+}
+
+.yen {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 /* =========================
-ボタン（最後）
+ボタン
 ========================= */
 
 .sell-submit-button {

@@ -11,6 +11,11 @@
 <div class="item-detail-container">
 
     <div class="item-detail-image">
+
+        @if($item->purchase !== null)
+        <span class="sold-label">Sold</span>
+        @endif
+
         @if(Str::startsWith($item->image, 'http'))
             <img class="item-detail-img" src="{{ $item->image }}">
         @else
@@ -63,9 +68,15 @@
         </div>
 
 
-        <a href="/purchase/{{ $item->id }}" class="purchase-button">
-            購入手続きへ
-        </a>
+        @if($item->purchase === null)
+            <a href="/purchase/{{ $item->id }}" class="purchase-button">
+                購入手続きへ
+            </a>
+        @else
+            <button class="purchase-button" disabled>
+                売り切れ
+            </button>
+        @endif
 
 
         <div class="item-description">
