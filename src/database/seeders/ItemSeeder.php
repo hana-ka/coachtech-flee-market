@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Item;
 use App\Models\Condition;
+use App\Models\User;
+
 
 class ItemSeeder extends Seeder
 {
@@ -100,10 +102,11 @@ class ItemSeeder extends Seeder
 
         foreach ($items as $item) {
 
+            $user = User::inRandomOrder()->first();
             $condition = Condition::where('name', $item['condition'])->first();
 
             Item::create([
-                'user_id' => 1,
+                'user_id' => $user->id,
                 'name' => $item['name'],
                 'brand' => $item['brand'],
                 'description' => $item['description'],

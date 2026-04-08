@@ -22,6 +22,8 @@
             <div class="profile-image">
                 @if($user->image)
                     <img src="{{ asset('storage/'.$user->profile_image) }}">
+                @else
+                    <img src="{{ asset('images/default.jpeg') }}">
                 @endif
             </div>
 

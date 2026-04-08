@@ -149,7 +149,10 @@
 
             <p class="comment-label">商品へのコメント</p>
 
-            <textarea name="content" class="comment-textarea"></textarea>
+            <textarea name="content" class="comment-textarea">{{ old('content') }}</textarea>
+            @error('content')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
 
             <button class="comment-button">
                 コメントを送信する
