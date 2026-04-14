@@ -15,6 +15,11 @@ use Laravel\Fortify\Fortify;
 
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use App\Http\Responses\RegisterResponse;
+use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
+use App\Http\Responses\LoginResponse;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -44,6 +49,25 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.register');
         });
 
+        Fortify::authenticateUsing(function ($request) {
+            $request->validate([
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ], [
+                'email.required' => 'メールアドレスを入力してください',
+                'email.email' => 'メールアドレスはメール形式で入力してください',
+                'password.required' => 'パスワードを入力してください',
+            ]);
+
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+
+            return null;
+        });
+
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
@@ -57,6 +81,11 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->singleton(
             RegisterResponseContract::class,
             RegisterResponse::class
+        );
+
+        $this->app->singleton(
+            LoginResponseContract::class,
+            LoginResponse::class
         );
     }
 }

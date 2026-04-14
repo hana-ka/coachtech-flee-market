@@ -32,7 +32,7 @@
 
 <div class="mypage-tabs">
 
-    <a href="/mypage" class="tab {{ request('page') !== 'buy' ? 'active' : '' }}">
+    <a href="/mypage?page=sell" class="tab {{ request('page') !== 'buy' ? 'active' : '' }}">
         出品した商品
     </a>
 

@@ -24,6 +24,10 @@
                 class="form-input"
                 value="{{ $user->postcode }}"
             >
+
+            @error('postcode')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="form-group">
@@ -35,6 +39,10 @@
                 class="form-input"
                 value="{{ $user->address }}"
             >
+
+            @error('address')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="form-group">

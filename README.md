@@ -79,6 +79,8 @@ php artisan db:seed
 
 ## ER図
 
+![ER図](public/images/er図.png)
+
 ## URL
 
 - 開発環境：http://localhost/

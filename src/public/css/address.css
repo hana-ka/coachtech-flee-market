@@ -81,3 +81,10 @@ button
     font-size: 16px;
     cursor: pointer;
 }
+
+
+.error {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 5px;
+}

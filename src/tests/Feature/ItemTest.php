@@ -33,11 +33,13 @@ class ItemTest extends TestCase
     public function test_all_items_are_displayed()
     {
 
-        Item::factory()->count(3)->create();
+        $items = Item::factory()->count(3)->create();
 
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        foreach ($items as $item) {
+            $response->assertSee($item->name);
+        }
     }
 
     public function test_sold_item_is_displayed_as_sold()
@@ -199,6 +201,7 @@ class ItemTest extends TestCase
         $response->assertSee('赤いバッグ');
         $response->assertDontSee('青い靴');
 
+        $response->assertSee('name="keyword"', false);
         $response->assertSee('value="赤"', false);
     }
 

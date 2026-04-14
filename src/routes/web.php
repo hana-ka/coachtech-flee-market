@@ -22,10 +22,9 @@ use Illuminate\Http\Request;
 
 Route::get('/', [ItemController::class, 'index']);
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
 
     Route::get('/mypage/profile', [MypageController::class, 'edit'])
-        ->middleware('verified')
         ->name('mypage.profile.edit');
 
     Route::patch('/mypage/profile', [MypageController::class, 'update'])
@@ -56,10 +55,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/like/{item}', [LikeController::class, 'store'])
         ->name('like.store');
 
+});
+
+Route::middleware('auth')->group(function () {
 
     Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-    })->name('verification.notice');
+        return view('auth.verify-email');
+        })->name('verification.notice');
 
 
     Route::post('/email/verification-notification', function (Request $request) {
@@ -76,6 +78,7 @@ Route::middleware('auth')->group(function () {
     })->middleware('signed')->name('verification.verify');
 
 });
+
 
 Route::get('/item/{item}', [ItemController::class, 'show'])
     ->name('items.show');

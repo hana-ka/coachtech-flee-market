@@ -82,6 +82,7 @@ form
 .section-title {
     font-size: 18px;
     font-weight: bold;
+    color: rgb(106, 105, 105);
 
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -195,4 +196,10 @@ form
 
     font-size: 16px;
     cursor: pointer;
+}
+
+.error {
+    color: #ff5a5a;
+    font-size: 13px;
+    margin-top: 5px;
 }

@@ -9,6 +9,7 @@ use App\Models\Item;
 use App\Http\Requests\PurchaseRequest;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+use App\Http\Requests\AddressRequest;
 
 class PurchaseController extends Controller
 {
@@ -89,7 +90,7 @@ class PurchaseController extends Controller
     }
 
 
-    public function update(Request $request, Item $item)
+    public function update(AddressRequest $request, Item $item)
     {
         $user = Auth::user();
 

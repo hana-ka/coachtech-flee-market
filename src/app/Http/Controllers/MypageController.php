@@ -53,7 +53,7 @@ class MypageController extends Controller
 
         $user->update($data);
 
-        return redirect('/mypage');
+        return redirect('/');
     }
 }
 

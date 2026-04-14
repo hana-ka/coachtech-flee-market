@@ -24,9 +24,9 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'payment_method' => ['required'],
-            'postcode' => ['required', 'regex:/^\d{3}-\d{4}$/'],
-            'address' => ['required'],
+            'payment_method' => 'required',
+            'postcode' => 'required',
+            'address' => 'required',
         ];
     }
 
@@ -34,8 +34,8 @@ class PurchaseRequest extends FormRequest
     {
         return [
             'payment_method.required' => '支払い方法を選択してください',
-            'postcode.required' => '郵便番号は必須です',
-            'address.required' => '住所は必須です',
+            'postcode.required' => '配送先を登録してください',
+            'address.required' => '配送先を登録してください',
         ];
     }
 

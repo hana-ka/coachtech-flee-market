@@ -25,9 +25,25 @@ class ProfileRequest extends FormRequest
     {
         return [
             'image' => 'nullable|image|mimes:jpeg,png',
-            'name' => 'required|max:20',
+            'name' => ['required', 'max:20'],
             'postcode' => ['required', 'regex:/^\d{3}-\d{4}$/'],
-            'address' => 'required',
+            'address' => ['required'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'image.image' => 'プロフィール画像は画像ファイルを選択してください',
+            'image.mimes' => 'プロフィール画像はjpegまたはpng形式でアップロードしてください',
+
+            'name.required' => 'ユーザー名を入力してください',
+            'name.max' => 'ユーザー名は20文字以内で入力してください',
+
+            'postcode.required' => '郵便番号を入力してください',
+            'postcode.regex' => '郵便番号はハイフンありの8文字で入力してください',
+
+            'address.required' => '住所を入力してください',
         ];
     }
 }

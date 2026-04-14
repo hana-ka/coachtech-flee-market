@@ -28,6 +28,10 @@
                     >
                 </label>
             </div>
+
+            @error('image')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
 
@@ -35,7 +39,6 @@
 
             <h3 class="section-title">商品の詳細</h3>
 
-            {{-- カテゴリ --}}
             <p class="form-label">カテゴリー</p>
 
             <div class="category-list">
@@ -56,6 +59,10 @@
 
             </div>
 
+            @error('categories')
+                <p class="error">{{ $message }}</p>
+            @enderror
+
             <p class="form-label">商品の状態</p>
 
             <select name="condition_id" class="form-select">
@@ -68,12 +75,13 @@
                 @endforeach
             </select>
 
+            @error('condition_id')
+                <p class="error">{{ $message }}</p>
+            @enderror
+
         </div>
 
 
-        {{-- =========================
-        商品名と説明
-        ========================= --}}
         <div class="form-section">
 
             <h3 class="section-title">商品名と説明</h3>
@@ -84,9 +92,14 @@
                     id="name"
                     type="text"
                     name="name"
+                    value="{{ old('name') }}"
                     class="form-input"
                 >
             </div>
+
+            @error('name')
+                <p class="error">{{ $message }}</p>
+            @enderror
 
             <div class="form-group">
                 <label for="brand" class="form-label">ブランド名</label>
@@ -94,6 +107,7 @@
                     id="brand"
                     type="text"
                     name="brand"
+                    value="{{ old('brand') }}"
                     class="form-input"
                 >
             </div>
@@ -104,29 +118,35 @@
                     id="description"
                     name="description"
                     class="form-textarea"
-                ></textarea>
+                >{{ old('description') }}</textarea>
             </div>
+
+            @error('description')
+                <p class="error">{{ $message }}</p>
+            @enderror
 
             <div class="form-group">
                 <label for="price" class="form-label">販売価格</label>
-                <dev class="price-input">
+                <div class="price-input">
                     <span class="yen">¥</span>
                     <input
                     id="price"
                     type="number"
                     name="price"
+                    value="{{ old('price') }}"
                     class="form-input"
                     min="0"
                     >
-                </dev>
+                </div>
             </div>
+
+            @error('price')
+                <p class="error">{{ $message }}</p>
+            @enderror
 
         </div>
 
 
-        {{-- =========================
-        ボタン
-        ========================= --}}
         <button type="submit" class="sell-submit-button">
             出品する
         </button>

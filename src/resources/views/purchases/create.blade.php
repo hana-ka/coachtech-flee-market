@@ -53,6 +53,10 @@
 
                     </select>
 
+                    @error('payment_method')
+                        <p class="error">{{ $message }}</p>
+                    @enderror
+
                 </div>
 
             </form>
@@ -71,6 +75,14 @@
                 <p class="address">
                     {{ $user->address }} {{ $user->building }}
                 </p>
+
+                @error('postcode')
+                    <p class="error">{{ $message }}</p>
+                @enderror
+
+                @error('address')
+                    <p class="error">{{ $message }}</p>
+                @enderror
 
             </div>
 
