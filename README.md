@@ -47,16 +47,36 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=test@example.com
-```
+MAIL_FROM_NAME="${APP_NAME}"
 
-※Stripeキーは環境に合わせて設定してください
+```
 
 ```bash
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
+php artisan storage:link
 ```
+
+### Stripeセットアップ
+
+StripeのPHPライブラリをインストールする必要があります。
+
+以下のコマンドを実行してください。
+
+```bash
+docker-compose exec php bash
+composer require stripe/stripe-php
+```
+
+※Stripeキーは環境に合わせて設定してください
 
 ## 使用技術（実行環境）
 
