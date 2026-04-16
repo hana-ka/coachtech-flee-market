@@ -10,7 +10,7 @@
 
 <div class="profile-container">
 
-    <h2 class="profile-title">プロフィール設定</h2>
+    <h1 class="profile-title">プロフィール設定</h1>
 
     <form method="POST" action="{{ route('mypage.profile.update') }}" enctype="multipart/form-data">
         @csrf

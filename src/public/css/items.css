@@ -118,11 +118,6 @@ item name
 }
 
 
-
-/* =========================
-show.blade.php
-========================= */
-
 /* =========================
 container
 ========================= */
@@ -197,10 +192,16 @@ text
 
 .item-price {
     font-size: 24px;
-    font-weight: bold;
     margin-bottom: 20px;
 }
 
+.currency-symbol{
+    font-size: 18px;
+}
+
+.tax-label{
+    font-size: 20px;
+}
 
 /* =========================
 icons

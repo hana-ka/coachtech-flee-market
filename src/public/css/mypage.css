@@ -109,10 +109,6 @@ button
 
 
 /* =========================
-index.blade.php
-========================= */
-
-/* =========================
 container
 ========================= */
 
@@ -136,7 +132,6 @@ profile area
 }
 
 
-/* 左（画像＋名前） */
 .profile-left {
     display: flex;
     align-items: center;
@@ -156,7 +151,6 @@ profile area
 }
 
 
-/* 編集ボタン */
 .profile-edit-button {
     border: 1px solid #ff5a5a;
     color: #ff5a5a;
@@ -232,7 +226,7 @@ item card
 }
 
 .item-name {
-    font-size: 14px;
+    font-size: 20px;
     margin-top: 15px;
 }
 

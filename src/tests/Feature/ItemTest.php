@@ -258,7 +258,8 @@ class ItemTest extends TestCase
 
         $response->assertSee('テスト商品');
         $response->assertSee('テストブランド');
-        $response->assertSee('¥1,000');
+        $response->assertSee('¥');
+        $response->assertSee('1,000');
         $response->assertSee('これはテスト用の商品説明です');
 
         $response->assertSee('カテゴリ');

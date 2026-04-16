@@ -67,9 +67,9 @@ php artisan storage:link
 
 ### Stripeセットアップ
 
-StripeのPHPライブラリをインストールする必要があります。
+StripeのPHPライブラリをインストールする必要があります
 
-以下のコマンドを実行してください。
+以下のコマンドを実行してください
 
 ```bash
 docker-compose exec php bash

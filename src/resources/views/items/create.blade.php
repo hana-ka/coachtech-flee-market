@@ -10,7 +10,7 @@
 
 <div class="sell-container">
 
-    <h2 class="sell-title">商品の出品</h2>
+    <h1 class="sell-title">商品の出品</h1>
 
     <form method="POST" action="{{ route('items.store') }}" enctype="multipart/form-data" class="sell-form">
         @csrf
@@ -37,7 +37,7 @@
 
         <div class="form-section">
 
-            <h3 class="section-title">商品の詳細</h3>
+            <h2 class="section-title">商品の詳細</h2>
 
             <p class="form-label">カテゴリー</p>
 
@@ -84,7 +84,7 @@
 
         <div class="form-section">
 
-            <h3 class="section-title">商品名と説明</h3>
+            <h2 class="section-title">商品名と説明</h2>
 
             <div class="form-group">
                 <label for="name" class="form-label">商品名</label>

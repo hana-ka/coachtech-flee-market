@@ -25,12 +25,13 @@
 
     <div class="item-detail-content">
 
-        <h2 class="item-name">{{ $item->name }}</h2>
+        <h1 class="item-name">{{ $item->name }}</h1>
 
         <p class="item-brand">{{ $item->brand }}</p>
 
         <p class="item-price">
-            ¥{{ number_format($item->price) }}(税込)
+            <span class="currency-symbol">¥</span>{{ number_format($item->price) }}
+            <span class="tax-label">(税込)</span>
         </p>
 
 
@@ -80,13 +81,13 @@
 
 
         <div class="item-description">
-            <h3 class="section-title">商品説明</h3>
+            <h2 class="section-title">商品説明</h2>
             <p class="description-text">{{ $item->description }}</p>
         </div>
 
 
         <div class="item-info">
-            <h3 class="section-title">商品の情報</h3>
+            <h2 class="section-title">商品の情報</h2>
 
             <p class="info-text">
                 カテゴリ
@@ -104,7 +105,7 @@
 
         <div class="item-comments">
 
-            <h3 class="section-title">コメント  ({{ $item->comments->count() }})</h3>
+            <h2 class="section-title">コメント  ({{ $item->comments->count() }})</h2>
 
             <div class="comment-list">
 

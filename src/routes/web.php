@@ -28,9 +28,10 @@ Route::middleware(['auth','verified'])->group(function () {
         ->name('mypage.profile.edit');
 
     Route::patch('/mypage/profile', [MypageController::class, 'update'])
-    ->name('mypage.profile.update');
+        ->name('mypage.profile.update');
 
-    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
+    Route::get('/mypage', [MypageController::class, 'index'])
+        ->name('mypage');
 
 
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
@@ -38,18 +39,20 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
 
 
-    Route::get('/purchase/{item}', [PurchaseController::class, 'create'])->name('purchase.create');
+    Route::get('/purchase/{item}', [PurchaseController::class, 'create'])
+        ->name('purchase.create');
 
-    Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit']) ->name('purchase.address.edit');
+    Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit'])
+        ->name('purchase.address.edit');
 
     Route::post('/purchase/address/{item}', [PurchaseController::class, 'update'])
-    ->name('purchase.address.update');
+        ->name('purchase.address.update');
 
     Route::post('/purchase/{item}', [PurchaseController::class, 'store'])
-    ->name('purchase.store');
+        ->name('purchase.store');
 
     Route::get('/purchase/success/{item}', [PurchaseController::class, 'success'])
-    ->name('purchase.success');
+        ->name('purchase.success');
 
 
     Route::post('/like/{item}', [LikeController::class, 'store'])
@@ -75,7 +78,8 @@ Route::middleware('auth')->group(function () {
         $request->fulfill();
 
         return redirect('/mypage/profile');
-    })->middleware('signed')->name('verification.verify');
+    })->middleware('signed')
+        ->name('verification.verify');
 
 });
 
